@@ -1,0 +1,18 @@
+services:
+  database:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: ${DB_NAME:-road_trip_guru}
+      MARIADB_USER: ${DB_USER:-roadtrip}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-roadtrip_dev}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-roadtrip_root_dev}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - road-trip-guru-data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./database/procedures.sql:/docker-entrypoint-initdb.d/03-procedures.sql:ro
+
+volumes:
+  road-trip-guru-data:
