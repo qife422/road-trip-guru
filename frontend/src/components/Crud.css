@@ -1,0 +1,42 @@
+.crud-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.delete {
+    background-color: red;
+}
+
+.update {
+    background-color: blue;
+
+}
+
+.create {
+    background-color: green;
+}
+
+.generate {
+    background-color: purple;
+}
+
+.crud-button {
+    padding: 12px 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.crud-button:hover {
+    background-color: #333;
+    opacity: .5;
+    color: white;
+}
+
+.crud-button:active {
+    transform: scale(0.97);
+}
